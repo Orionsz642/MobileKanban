@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.orionsz642.task.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -17,6 +18,18 @@ class LoginFragment : Fragment() {
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initListener()
+    }
+
+    private fun initListener(){
+        binding.btnRegister.setOnClickListener {
+            findNavController().navigate()
+        }
     }
 
     override fun onDestroyView() {
