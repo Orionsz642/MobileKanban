@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.orionsz642.task.R
 import com.orionsz642.task.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -27,8 +28,17 @@ class LoginFragment : Fragment() {
     }
 
     private fun initListener(){
+
+        binding.buttonLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_global_homeFragment)
+        }
+
         binding.btnRegister.setOnClickListener {
-            findNavController().navigate()
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment2)
+        }
+
+        binding.btnRecover.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_recoverAccountFragment3)
         }
     }
 
